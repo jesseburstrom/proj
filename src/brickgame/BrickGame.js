@@ -8,8 +8,7 @@ import Confetti from "react-confetti";
 import { CSSTransition } from "react-transition-group";
 import '../App.css';
 import './BrickGame.css';
-import { Dropdown } from "../components/Dropdown";
-import { DropdownGen } from "../components/DropdownGen";
+import { Dropdown, DropdownGen, DropdownTxt } from "../components/Dropdown";
 import { Highlighter } from "../components/Highlighter";
 import * as themes from "react-syntax-highlighter/dist/esm/styles/hljs";
 import * as languages from "react-syntax-highlighter/dist/esm/languages/hljs";
@@ -23,13 +22,15 @@ function BrickGame({bricks, gameSize, onInitBricks, onMoveBrick, onSetGameSize, 
   const [language, setLanguage] = React.useState(defaultLanguage);
   const [theme, setTheme] = React.useState(defaultTheme);
   const [showCode, setShowCode] = React.useState(false);
-  console.log("dfdf", isLoadingCodes, isCompletedLoadingCodes);
-  console.log("codes", codes);
+  const [codeFile, setCodeFile] = React.useState('BrickGame.js');
+
   React.useEffect(async ()  =>  {
     onInitBricks(allNewBricks());
     if (!isCompletedLoadingCodes && !isLoadingCodes) {
       console.log("dispatching!");
-      onLoadCodes(['https://raw.githubusercontent.com/jesseburstrom/react-demo/main/src/server.js']);
+      onLoadCodes(['https://raw.githubusercontent.com/jesseburstrom/proj/master/src/brickgame/BrickGame.js', 
+      'https://raw.githubusercontent.com/jesseburstrom/proj/master/src/brickgame/Brick.js', 
+      'https://raw.githubusercontent.com/jesseburstrom/proj/master/src/brickgame/BrickGame.css']);
     }
     
   }, [gameSize]);
@@ -140,10 +141,10 @@ function BrickGame({bricks, gameSize, onInitBricks, onMoveBrick, onSetGameSize, 
         <>
           <div className="ControlsBox">
           File
-            <DropdownGen
-                selected={"BrickGame.js"}
-                onChange={(e) => setTheme(e.target.value)}
-                data={['BrickGame.js','Brick.js']}
+            <DropdownTxt
+                selected={codeFile}
+                onChange={(e) => setCodeFile(e.target.value)}
+                data={['BrickGame.js', 'Brick.js', 'BrickGame.css']}
             />
             Color Templates
             <Dropdown
@@ -157,7 +158,7 @@ function BrickGame({bricks, gameSize, onInitBricks, onMoveBrick, onSetGameSize, 
           <div className="CodeBox">
           
             <Highlighter language={language} theme={themes[theme]}>
-              {codes[0].code}
+              {codes.find(code => code.file === codeFile).code}
             </Highlighter>
           </div>
         </>

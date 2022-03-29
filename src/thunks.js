@@ -42,7 +42,8 @@ export const loadCodes = (codeUrls) => async (dispatch) => {
     dispatch(loadCodesInProgress());
     let codes = [];
     codeUrls.forEach(async (url) => {
-      await fetch(url).then(r => r.text()).then(text => codes.push({url: url, code: text}));
+      const fileName = url.split('/').pop();
+      await fetch(url).then(r => r.text()).then(text => codes.push({url: url, file: fileName, code: text}));
     });
     console.log("CODES THUNK", codes);
     dispatch(loadCodesSuccess(codes));
