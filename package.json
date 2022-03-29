@@ -1,0 +1,48 @@
+{
+  "name": "proj",
+  "version": "1.0.0",
+  "proxy": "http://localhost:8000/",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/runtime": "^7.17.8",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "react": "^17.0.2",
+    "react-confetti": "^6.0.1",
+    "react-dom": "^17.0.2",
+    "react-pdf": "^5.7.1",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.2.2",
+    "react-scripts": "^5.0.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "react-transition-group": "^4.4.2",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.4.1",
+    "reselect": "^4.1.5",
+    "styled-components": "^5.3.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

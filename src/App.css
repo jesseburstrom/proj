@@ -1,0 +1,89 @@
+
+.nav-layout {
+  border-bottom: 4px solid black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 100;
+}
+
+nav {
+    
+    width: 80%;
+    font-size: 15px;
+   
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    display: inline-block;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 12px 24px;
+  }
+  
+  nav a:hover {
+    background: black;
+    color: white;
+  }
+
+  .NavBox {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
+}
+
+.nav-auth {
+  font-size: 12px;
+}
+.nav-right {
+  text-align: right;
+}
+
+.nav-center {
+  text-align: center;
+}
+
+.nav-left {
+  text-align: left;
+}
+
+.page-container {
+  
+  min-height: 100vh;
+  min-width: 100%;
+  align-items: center;
+  justify-content: center;
+} 
+
+.language-swedish {
+  background-image: url(./img/swe.png);
+  background-size: fit;
+  width: 31px;
+  height: 20px;
+  margin-bottom: 0px;
+  border-radius: 0;
+}
+
+.language-english {
+  background-image: url(./img/uk.png);
+  background-size: contain;
+  width: 31px;
+  height: 20px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+  border-radius: 0;
+}
