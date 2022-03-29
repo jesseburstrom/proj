@@ -49,7 +49,7 @@ const HomePage = () => (
                <p>I am dedicated and professional in my approach to programming. I have studied it a long time and I am now looking for a job as a programmer to get practical experience.
                This is the career I intend to excel at.</p>
                
-               <p>I'm a good communicator and love to work with people in teams.</p>
+               I'm a good communicator and love to work with people in teams.
                 <p>I am self going as well as good at following instructions when developing and coding.</p>
                
            </div>
@@ -62,7 +62,7 @@ const HomePage = () => (
             <a href="mailto:jessse.burstrom@gmail.com" className="footer__link">jesse.burstrom@gmail.com</a>
             <ul className="social-list">
                 <li className="social-list__item">
-                    <a className="social-list__link" href="https://github.com/jesseburstrom">
+                    <a className="social-list__link" href="https://github.com/jesseburstrom/proj">
                     <FontAwesomeIcon icon={faGithub} />
                         
                     </a>

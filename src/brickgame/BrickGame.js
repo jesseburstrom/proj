@@ -138,6 +138,7 @@ function BrickGame({bricks, gameSize, onInitBricks, onMoveBrick, onSetGameSize, 
        onClick={(e) => setShowCode(prev=>!prev)}>{showCode ? "Hide Code" : "Show Code"}</button>
       {
         showCode && 
+        isCompletedLoadingCodes ?
         <>
           <div className="ControlsBox">
           File
@@ -162,6 +163,8 @@ function BrickGame({bricks, gameSize, onInitBricks, onMoveBrick, onSetGameSize, 
             </Highlighter>
           </div>
         </>
+        :
+        <p>Loading Codes...</p>
       }
     </div>
     </>
