@@ -3,7 +3,7 @@ import './HomePage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 //import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import Pdf from './CV - Jesse Burström - Swedish.pdf';
+import Pdf from './CV-JesseBurström-Swe.pdf';
 
 import jesse1 from '../img/jesse1.jpg';
 import jesse3 from '../img/jesse3.jpg';
@@ -27,7 +27,7 @@ const HomePage = () => (
                 </div> 
                 
                 <div className="service">
-                    <h3 className="h3">Client System</h3>
+                <h3 className="h3"><a href="https://github.com/jesseburstrom/client_system" target="_blank" className="client-system">Client System</a></h3>
                     <p>Jag utvecklar också ett generellt, alla platformar med samma kod, applikationssystem i Flutter. Målet är att överbrygga avståndet från idé till färdig produkt och underlätta att testa nya ideer.</p>
                 </div> 
                 

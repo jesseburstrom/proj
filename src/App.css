@@ -8,7 +8,10 @@
   background: white;
   z-index: 100;
 }
-
+body {
+  background-image: linear-gradient(to bottom right, #ffdee9, #096461);
+  background-repeat: no-repeat;
+}
 nav {
     
     width: 80%;

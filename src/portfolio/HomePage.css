@@ -298,7 +298,9 @@ strong { font-weight: var(--fw-bold) }
     opacity: .5;
 }
 
-
+.client-system {
+    color: #3963e2;
+}
 /* footer */
 
 .footer {

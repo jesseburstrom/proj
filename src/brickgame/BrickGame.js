@@ -26,8 +26,7 @@ function BrickGame({bricks, gameSize, onInitBricks, onMoveBrick, onSetGameSize, 
 
   React.useEffect(async ()  =>  {
     onInitBricks(allNewBricks());
-    if (!isCompletedLoadingCodes && !isLoadingCodes) {
-      console.log("dispatching!");
+    if (!isLoadingCodes) {
       onLoadCodes(['https://raw.githubusercontent.com/jesseburstrom/proj/master/src/brickgame/BrickGame.js', 
       'https://raw.githubusercontent.com/jesseburstrom/proj/master/src/brickgame/Brick.js', 
       'https://raw.githubusercontent.com/jesseburstrom/proj/master/src/brickgame/BrickGame.css']);
@@ -107,9 +106,10 @@ function BrickGame({bricks, gameSize, onInitBricks, onMoveBrick, onSetGameSize, 
   
   return (
     <>
+    {isWon() && <Confetti />}
     <div className="PanelsBox">
       <div className="main">
-        {isWon() && <Confetti />}
+        
         <h1 className="title">{gameSize*gameSize-1} Game</h1>
         <p className="instructions">
           Click on brick next to empty square to move. When 1-{gameSize*gameSize-1} is aligned from
@@ -134,12 +134,12 @@ function BrickGame({bricks, gameSize, onInitBricks, onMoveBrick, onSetGameSize, 
           </button>
         </div>
       </div>
+      
       <button className="ShowCodeButton"
        onClick={(e) => setShowCode(prev=>!prev)}>{showCode ? "Hide Code" : "Show Code"}</button>
-      {
+      {!isCompletedLoadingCodes ? <p>Loading Codes...</p> :
         showCode && 
-        isCompletedLoadingCodes ?
-        <>
+        <>   
           <div className="ControlsBox">
           File
             <DropdownTxt
@@ -163,8 +163,6 @@ function BrickGame({bricks, gameSize, onInitBricks, onMoveBrick, onSetGameSize, 
             </Highlighter>
           </div>
         </>
-        :
-        <p>Loading Codes...</p>
       }
     </div>
     </>

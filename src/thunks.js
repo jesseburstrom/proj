@@ -119,9 +119,10 @@ export const removeTodoRequest = (id) => async (dispatch) => {
 export const logActivity =  async (activity, id, token)  => {
   
   try {
-    const body = JSON.stringify({ activity });
-    console.log("logActivity");
-    const response = await fetch(`/api/log/${id}`, {
+    const body = JSON.stringify({ "type": activity.type, "payload": "" });
+    
+    console.log("logActivity : ", body);
+    const response = await fetch(`/api/log/${id}`, { 
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`,

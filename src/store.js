@@ -21,16 +21,22 @@ const reducers = {
  * Logs all actions and states after they are dispatched.
  */
 const logger = store => next => action => {
-  console.group(action.type)
-  if (store.getState().token.length > 0) {
-    console.info('dispatching', action)
-    console.log(store.getState().token);
-    logActivity(action, store.getState().user.id, store.getState().token);  
+  var result;
+  if (typeof action.type !== 'undefined') {
+    console.group(action.type);
+    if (store.getState().token.length > 0) {
+      console.log('dispatching', action);
+      console.log(store.getState().token);
+      logActivity(action, store.getState().user.id, store.getState().token);  
+    }
+    
+    result = next(action);
+    console.log('next state', store.getState());
+    console.groupEnd();
+  } else {
+    result = next(action);
   }
   
-  let result = next(action)
-  console.log('next state', store.getState())
-  console.groupEnd()
   return result
 }
 
