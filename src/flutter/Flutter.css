@@ -1,0 +1,22 @@
+body {
+    font-family: "Karla", sans-serif;
+    margin-top: 0px;
+}
+
+
+main-flutter {
+    display:flex;
+    flex-direction: column;
+    
+    
+    align-items: center;
+}
+
+.instructions-flutter {
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    font-size: 0.9em;
+    margin-top: 0;
+    text-align: left;
+    max-width: 60%;
+}

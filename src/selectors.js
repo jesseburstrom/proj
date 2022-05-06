@@ -10,6 +10,8 @@ export const getCompletedTodos = createSelector(getTodos, (todos) =>
   todos.filter((todo) => todo.isCompleted)
 );
 
+export const getFlutterSettings = (state) => state.flutter;
+
 export const getUser = (state) => state.user;
 
 export const getMemes = (state) => state.memes.data;

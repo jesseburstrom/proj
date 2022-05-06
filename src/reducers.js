@@ -2,6 +2,7 @@ import { INIT_BRICKS, MOVE_BRICK, SET_GAME_SIZE } from "./actions";
 import { SET_USER, GET_TOKEN, SET_TOKEN } from "./actions";
 import {SAVE_MEME, LOAD_MEMES_SUCCESS, LOAD_MEMES_IN_PROGRESS, LOAD_MEMES_FAILURE } from "./actions";
 import { CHANGE_LANGUAGE } from "./actions";
+import { SAVE_SETTINGS_FLUTTER } from "./actions";
 
 import {
   CREATE_TODO,
@@ -18,6 +19,57 @@ import {
   LOAD_CODES_FAILURE,
 } from "./actions";
 
+import {
+  CHANGE_LOGGING,
+  LOAD_LOGS_SUCCESS,
+  LOAD_LOGS_IN_PROGRESS,
+  LOAD_LOGS_FAILURE,
+} from './actions';
+
+export const flutter = (state = [], action) => {
+  const { type, payload } = action;
+  
+  switch (type) {
+    case SAVE_SETTINGS_FLUTTER: {
+      return payload;
+    }
+    default:
+      return state;
+  }
+};
+
+const initialLogsState = { isCompletedLoading: false, isLogging: false, data: [] };
+
+export const logs = (state = initialLogsState, action) => {
+  const { type, payload } = action;
+  
+  switch (type) {
+    case CHANGE_LOGGING: {
+      return { ...state, isLogging: payload };
+    }
+    case LOAD_LOGS_SUCCESS: {
+      const { logs } = payload;
+      console.log("In reducer logs", logs);
+      return {
+        ...state,
+        isCompletedLoading: true,
+        data: logs,
+      };
+    }
+    case LOAD_LOGS_IN_PROGRESS:
+      return {
+        ...state,
+        isCompletedLoading: false,
+      };
+    case LOAD_LOGS_FAILURE:
+      return {
+        ...state,
+        isCompletedLoading: false,
+      };
+    default:
+      return state;
+  }
+};
 
 export const language = (state = "English", action) => {
   const { type, payload } = action;
@@ -50,7 +102,6 @@ export const memes = (state = initialMemeState, action) => {
     
     case LOAD_MEMES_SUCCESS: {
       const { memes } = payload;
-      console.log("IN SELECTOR", memes);
       return {
         ...state,
         isCompletedLoading: true,

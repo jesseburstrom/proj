@@ -4,8 +4,8 @@ import Routings from "./Routings";
 
 export const App = () => {
   return (
-    <div className="page-container">
+    <>
       <Routings />
-    </div>
+    </>
   );
 };

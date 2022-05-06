@@ -4,7 +4,7 @@ import storage from "redux-persist/lib/storage";
 import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
 import thunk from "redux-thunk";
 //import { composeWithDevTools } from "redux-devtools-extension";
-import { bricks, user, token, todos, memes, language, codes } from "./reducers";
+import { bricks, user, token, todos, memes, language, codes, logs, flutter } from "./reducers";
 import { logActivity } from "./thunks";
 
 const reducers = {
@@ -15,6 +15,8 @@ const reducers = {
   memes,
   language,
   codes,
+  logs,
+  flutter,
 };
 
 /**
@@ -22,7 +24,7 @@ const reducers = {
  */
 const logger = store => next => action => {
   var result;
-  if (typeof action.type !== 'undefined') {
+  if (store.getState().logs.isLogging && typeof action.type !== 'undefined') {
     console.group(action.type);
     if (store.getState().token.length > 0) {
       console.log('dispatching', action);
@@ -52,7 +54,8 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const configureStore = () =>
   createStore(
     persistedReducer,
-    applyMiddleware(logger, thunk)
+    applyMiddleware(thunk)
+    //applyMiddleware(logger, thunk)
     //composeWithDevTools(applyMiddleware(logger, thunk))
     //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   );

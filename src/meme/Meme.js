@@ -81,13 +81,13 @@ function Meme({isCompletedLoading, memes, startLoadingMemes, onSaveMeme}) {
 const mapStateToProps = (state) => ({
     isCompletedLoading: getMemesLoading(state),
     memes: getMemes(state),
-  });
+});
   
   
-  const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch) => ({
     startLoadingMemes: () => dispatch(loadMemes()),
     onSaveMeme: (meme) => dispatch(saveMeme(meme)),
-  });
+});
   
-  export default connect(mapStateToProps, mapDispatchToProps)(Meme);
+export default connect(mapStateToProps, mapDispatchToProps)(Meme);
   

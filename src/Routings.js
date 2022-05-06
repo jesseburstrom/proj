@@ -6,6 +6,7 @@ import HomePage from "./portfolio/HomePage";
 import HomePageSWE from "./portfolio/HomePageSWE";
 
 //import { UserInfoPage } from "./pages/UserInfoPage";
+import Flutter from "./flutter/Flutter";
 import PrivateRoute  from "./auth/PrivateRoute";
 import  BrickGame  from "./brickgame/BrickGame";
 import Meme from "./meme/Meme";
@@ -26,22 +27,24 @@ import {
 
 function Routings({language, onChangeLanguage}) {
   return (
-    <Router>
-      <div className="App"  >
-        <div className="nav-layout">
-          <div className="NavBox">
-            <NavBar align="nav-left" />
-            <NavBarAdmin align="nav-right" />
-          </div>
+    <Router>  
+      <div className="nav-layout">
+        <div className="NavBox">
+          <NavBar align="nav-left" />
+          <NavBarAdmin align="nav-right" />
         </div>
-        
+      </div>
+      
+      <div className="page-container">
         <Routes> 
           {language === "Swedish" ?
           <Route path="/" element={<HomePageSWE />} exact />
           :
           <Route path="/" element={<HomePage />} exact />
             
-        }
+          }
+          
+          <Route path="/flutter-app" element={<Flutter />} />
           
           <Route path="/brickgame" element={<PrivateRoute component={BrickGame} />} />
             
@@ -55,7 +58,7 @@ function Routings({language, onChangeLanguage}) {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </div>
+      </div>      
     </Router>
   );
 };

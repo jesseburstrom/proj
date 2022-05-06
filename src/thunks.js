@@ -19,6 +19,12 @@ import {
   loadCodesFailure,
 } from "./actions";
 
+import {
+  loadLogsInProgress,
+  loadLogsSuccess,
+  loadLogsFailure,
+} from "./actions";
+
 export const loadMemes = () => async (dispatch, getState) => {
   try {
     dispatch(loadMemesInProgress());
@@ -115,6 +121,20 @@ export const removeTodoRequest = (id) => async (dispatch) => {
 };
 
 
+export const loadLogs = () => async (dispatch, getState) => {
+  try {
+    dispatch(loadLogsInProgress());
+    const response = await fetch(`/api/getLog/${id}`);
+    
+    const logs = await response.json();
+    
+    console.log("LOGS!!!", logs);
+    dispatch(loadLogsSuccess(logs));
+  } catch (e) {
+    dispatch(loadLogsFailure());
+    dispatch(displayAlert(e));
+  }
+};
 
 export const logActivity =  async (activity, id, token)  => {
   
