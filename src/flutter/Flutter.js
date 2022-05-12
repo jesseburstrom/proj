@@ -9,8 +9,10 @@ import {
     saveSettingsFlutter,
   } from "../actions";
 
-  const socket = io('http://localhost:8000');
-  //const socket = io('https://clientsystem.net:8000');
+  const isOnline = true;
+  const flutter = isOnline ? "https://clientsystem.net/flutter" : "http://localhost:8000/flutter";
+  const socket = io(flutter);
+
 
 function Flutter({onSaveSettingsFlutter, settings}) {
   
@@ -48,7 +50,7 @@ function Flutter({onSaveSettingsFlutter, settings}) {
             One player can only join one game at a time. If you create a game type already offered you will join that game instead. To test multiplayer you can open this webpage in several tabs each will connect as new player.
             <br />4-6 (depending on game mode) dices of same value gives Yatzy.<br />Boardanimation can be turned on/off in settings 'General' tab and there is also an option for changing language.</p>
             
-            {startFlutter && <iframe width={window.innerWidth / 2} height={window.innerHeight / 2} src={"http://localhost:8000/flutter"}/>}
+            {startFlutter && <iframe width={window.innerWidth / 2} height={window.innerHeight / 2} src={flutter}/>}
 
             <h2>Video of system showing multiplatform game with Unity 3d plugin</h2>
             <p className="instructions-flutter">The video is  from december 2021 and the program has been upgraded but roughly the same.</p>

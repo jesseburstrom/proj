@@ -10,6 +10,9 @@ const NavBar = ({align}) => {
           <Link to="/">Home</Link>
         </li>
         <li>
+          <Link to="/flutter-app">Live Yatzy</Link>
+        </li>
+        <li>
           <Link to="/brickgame">Brick Game</Link>
         </li>
         <li>
@@ -18,11 +21,6 @@ const NavBar = ({align}) => {
         <li >
           <Link to="/meme">Meme Generator</Link>
         </li>
-        
-        <li>
-          <Link to="/articles-list">Blog</Link>
-        </li>
-        
       </ul>
     </nav>
    

@@ -28,12 +28,16 @@ const HomePage = () => (
                 
                 <div className="service">
                 <h3 className="h3"><a href="https://github.com/jesseburstrom/client_system" target="_blank" className="client-system">Client System</a></h3>
-                    <p>Jag utvecklar också ett generellt, alla platformar med samma kod, applikationssystem i Flutter. Målet är att överbrygga avståndet från idé till färdig produkt och underlätta att testa nya ideer.</p>
+                    <p>Jag utvecklar också ett generellt, alla platformar med samma kod, applikationssystem i Flutter. Målet är att överbrygga avståndet från idé till färdig produkt och underlätta att testa nya ideer. 
+                    Livedemo med Yatzy-fliken.
+                        Arbetar för närvarande på att få webb-3D-versionen fullt funktionell interaktivt. Utseendemässigt är 3d versionen mycket bra. Det fungerar även i mobil webbläsare.
+                    </p>
                 </div> 
                 
                 <div className="service">
                     <h3 className="h3">Datavetenskap</h3>
-                    <p>Jag har en mastersexamen i matematisk statistik. Jag programmerar 'big data' med Python eller R för bland annat prediktiv modellering</p>
+                    <p>Jag har en mastersexamen i matematisk statistik. Jag programmerar 'big data' med Python eller R för bland annat prediktiv modellering. Min masteruppsats handlade om att förutsäga sannolikhet för examen beroende på
+                        individuella resultat av ingenjörer mot alla andra ingenjörer. Det var mer heuristiskt än absoluta förutsägelser. Livedemo av bildklassificering kommer snart.</p>
                 </div> 
             </div>
             
@@ -46,14 +50,14 @@ const HomePage = () => (
            
            <div className="about-me__body">
                <p>Jag är engagerad och professionell i mitt förhållningssätt till programmering. Jag har studerat det länge och jag söker nu jobb som programmerare för att få praktisk erfarenhet.
-               Det här är karriären jag tänker briljera med.</p>
+               Programmering är min hobby som jag gillar och vill att det ska vara roligt!</p>
                
                Jag är en bra kommunikatör och älskar att arbeta med människor i team.
                 <p>Jag är självgående och bra på att följa instruktioner vid utveckling och kodning.</p>
                
            </div>
            
-           <img src={jesse3} alt="Graduating University 2013" className="about-me__img" />
+           <img src={jesse3} alt="Jag på terassen!" className="about-me__img" />
         </section>
         
         <footer className="footer">

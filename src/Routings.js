@@ -10,8 +10,6 @@ import Flutter from "./flutter/Flutter";
 import PrivateRoute  from "./auth/PrivateRoute";
 import  BrickGame  from "./brickgame/BrickGame";
 import Meme from "./meme/Meme";
-import ArticlesListPage from "./blog/pages/ArticlesListPage";
-import ArticlePage from "./blog/pages/ArticlePage";
 import NotFoundPage from "./blog/pages/NotFoundPage";
 import TodoList from "./todos/TodoList";
 import NavBar from "./NavBar";
@@ -50,8 +48,7 @@ function Routings({language, onChangeLanguage}) {
             
           <Route path="/todos" element={<PrivateRoute component={TodoList} />} />
           
-          <Route path="/articles-list" element={<PrivateRoute component={ArticlesListPage} />} />
-          <Route path="/article/:name" element={<PrivateRoute component={ArticlePage} />} />
+          <Route path="/flutter-app" element={<Flutter />} />
           
           <Route path="/meme" element={<Meme />} />
           <Route path="/login" element={<LogInPage />} />
