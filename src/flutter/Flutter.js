@@ -9,34 +9,47 @@ import {
     saveSettingsFlutter,
   } from "../actions";
 
-  const isOnline = true;
-  const flutter = isOnline ? "https://clientsystem.net/flutter" : "http://localhost:8000/flutter";
-  const socket = io(flutter);
-
-
+  const isOnline = false;
+  const flutter = isOnline ? "https://clientsystem.net" : "http://127.0.0.1:8000";
+  console.log(flutter);
+//   let socket = io.connect(flutter,{ // [1] Important as fuck 
+//       reconnectionDelay: 1000,
+//       reconnection:true,
+//       reconnectionAttempts: 10,
+//       transports: ['websocket'],
+//       agent: false, // [2] Please don't set this to true
+//       upgrade: false,
+//       rejectUnauthorized: false
+//    });
+  const width = 0.7;
+  var socket;
 function Flutter({onSaveSettingsFlutter, settings}) {
   
     const [startFlutter, setStartFlutter] = useState(false);
+
     React.useEffect(()=>{
-        
-         socket.on('connect', ()=>{socket.emit("connectReact", settings); console.log("connected")});
+    socket = io(flutter , { transports: ['websocket'] });
+    socket.on('connect', ()=>{console.log("connected"); socket.emit("connectReact", settings);});
+    socket.on('startFlutter', (data)=>{
+       console.log("start flutter");
+       setStartFlutter(true);
+    });
+    socket.on('saveSettings', (data) => {console.log("save settings"); onSaveSettingsFlutter(data)});
+
     //     socket.on('connect_error', ()=>{
     //       setTimeout(()=>socket.connect(),5000)
     //     })
     //    //socket.on('flutter-save-settings', saveSettingsFlutter(data));
     //    //socket.on('flutter-get-settings', socket.emit("send-settings-flutter", settings));
-        socket.on('startFlutter', (data)=>{
-            console.log("start flutter");
-            setStartFlutter(true);
-         });
-         socket.on('saveSettings', (data) => {onSaveSettingsFlutter(data)});
     //    socket.emit("sendToFlutter", "Hello Flutter!");
        
     //    //socket.on('time', (data)=>setTime(data))
     //    //socket.on('disconnect',()=>setTime('server disconnected'))
-     
+     // 
      },[])
-    
+     
+
+
 
     
     return (
@@ -44,13 +57,13 @@ function Flutter({onSaveSettingsFlutter, settings}) {
         <main-flutter>
             <h1>Flutter Frontend</h1>
             
-            <p className="instructions-flutter">When your turn press 'Roll' dice the one right of the 4-6 dices in row. 3 rolls and if you want to hold/unhold one dice click on it. 
+            <p className="instructions-flutter">When your turn press 'roll' dice the one right of the 4-6 dices in row. 3 rolls and if you want to hold/unhold one dice click on it. 
             Choose the result you like most. On top of game board (1-6) for 'Ordinary' game the rule is 3 of each gives total 63 as sum gives bonus. Chat is between playing players only. To play new game or abort current
             click on settings button right corner and join/create new game. If player aborts game it is shown in black playfield for player and the game continues for the others.
             One player can only join one game at a time. If you create a game type already offered you will join that game instead. To test multiplayer you can open this webpage in several tabs each will connect as new player.
             <br />4-6 (depending on game mode) dices of same value gives Yatzy.<br />Boardanimation can be turned on/off in settings 'General' tab and there is also an option for changing language.</p>
             
-            {startFlutter && <iframe width={window.innerWidth / 2} height={window.innerHeight / 2} src={flutter}/>}
+            {startFlutter && <iframe width={window.innerWidth * width} height={window.innerWidth * width * 9 / 16} src={flutter + '/flutter'}/>}
 
             <h2>Video of system showing multiplatform game with Unity 3d plugin</h2>
             <p className="instructions-flutter">The video is  from december 2021 and the program has been upgraded but roughly the same.</p>
