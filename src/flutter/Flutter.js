@@ -9,7 +9,7 @@ import {
     saveSettingsFlutter,
   } from "../actions";
 
-  const isOnline = false;
+  const isOnline = true;
   const flutter = isOnline ? "https://clientsystem.net" : "http://127.0.0.1:8000";
   console.log(flutter);
 //   let socket = io.connect(flutter,{ // [1] Important as fuck 
@@ -57,11 +57,10 @@ function Flutter({onSaveSettingsFlutter, settings}) {
         <main-flutter>
             <h1>Flutter Frontend</h1>
             
-            <p className="instructions-flutter">When your turn press 'roll' dice the one right of the 4-6 dices in row. 3 rolls and if you want to hold/unhold one dice click on it. 
-            Choose the result you like most. On top of game board (1-6) for 'Ordinary' game the rule is 3 of each gives total 63 as sum gives bonus. Chat is between playing players only. To play new game or abort current
-            click on settings button right corner and join/create new game. If player aborts game it is shown in black playfield for player and the game continues for the others.
+            <p className="instructions-flutter"> This demo is made in Flutter with Unity plugin and works also on mobile phones and tablets. Though for small screens one can use clientsystem.net/flutter to skip the web part. Chat is between playing players only. To play new game or abort current
+            click on settings button left corner and join/create new game. If player aborts game it is shown in black playfield for player and the game continues for the others.
             One player can only join one game at a time. If you create a game type already offered you will join that game instead. To test multiplayer you can open this webpage in several tabs each will connect as new player.
-            <br />4-6 (depending on game mode) dices of same value gives Yatzy.<br />Boardanimation can be turned on/off in settings 'General' tab and there is also an option for changing language.</p>
+            <br />Boardanimation can be turned on/off in settings 'General' tab and there is also an option for changing language.</p>
             
             {startFlutter && <iframe width={window.innerWidth * width} height={window.innerWidth * width * 9 / 16} src={flutter + '/flutter'}/>}
 
@@ -74,7 +73,7 @@ function Flutter({onSaveSettingsFlutter, settings}) {
             socket.io and uses ip address as indentifier. This communication is always availible since both React and Flutter are hosted by the (same) server.<br />Saving settings
             in the flutter app is done by the react localstorage (one handshake between react and server before starting flutter to get relative connection. 
             It could happen but almost improbable that 2 clients start at same time different computers using same ip getting mixed up. That would really not be a serious problem anyway.). 
-            Therefore updating the client will not change settings and no need for cookies.</p>
+            Therefore updating the client will not change settings and no need for cookies. Now half a year later Unity works on web and therefore in practice on all platforms with Flutter as well!</p>
         </main-flutter>
     </>
     );
