@@ -4,14 +4,13 @@ import storage from "redux-persist/lib/storage";
 import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
 import thunk from "redux-thunk";
 //import { composeWithDevTools } from "redux-devtools-extension";
-import { bricks, user, token, todos, memes, language, codes, logs, flutter } from "./reducers";
+import { bricks, user, token, memes, language, codes, logs, flutter } from "./reducers";
 import { logActivity } from "./thunks";
 
 const reducers = {
   bricks,
   user,
   token,
-  todos,
   memes,
   language,
   codes,

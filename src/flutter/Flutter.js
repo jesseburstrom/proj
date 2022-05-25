@@ -9,7 +9,7 @@ import {
     saveSettingsFlutter,
   } from "../actions";
 
-  const isOnline = true;
+  const isOnline = false;
   const flutter = isOnline ? "https://clientsystem.net" : "http://127.0.0.1:8000";
   console.log(flutter);
 //   let socket = io.connect(flutter,{ // [1] Important as fuck 
@@ -21,7 +21,7 @@ import {
 //       upgrade: false,
 //       rejectUnauthorized: false
 //    });
-  const width = 0.7;
+  const width = 0.6;
   var socket;
 function Flutter({onSaveSettingsFlutter, settings}) {
   

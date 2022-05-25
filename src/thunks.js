@@ -1,13 +1,4 @@
 import {
-  markTodoAsCompleted,
-  removeTodo,
-  createTodo,
-  loadTodosInProgress,
-  loadTodosSuccess,
-  loadTodosFailure,
-} from "./actions";
-
-import {
   loadMemesInProgress,
   loadMemesSuccess,
   loadMemesFailure,

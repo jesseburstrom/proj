@@ -15,9 +15,6 @@ const NavBar = ({align}) => {
         <li>
           <Link to="/brickgame">Brick Game</Link>
         </li>
-        <li>
-          <Link to="/todos">Todo Notes</Link>
-        </li>
         <li >
           <Link to="/meme">Meme Generator</Link>
         </li>

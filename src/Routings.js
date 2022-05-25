@@ -11,7 +11,6 @@ import PrivateRoute  from "./auth/PrivateRoute";
 import  BrickGame  from "./brickgame/BrickGame";
 import Meme from "./meme/Meme";
 import NotFoundPage from "./blog/pages/NotFoundPage";
-import TodoList from "./todos/TodoList";
 import NavBar from "./NavBar";
 import NavBarAdmin from "./NavBarAdmin";
 import "./App.css";
@@ -45,9 +44,7 @@ function Routings({language, onChangeLanguage}) {
           <Route path="/flutter-app" element={<Flutter />} />
           
           <Route path="/brickgame" element={<PrivateRoute component={BrickGame} />} />
-            
-          <Route path="/todos" element={<PrivateRoute component={TodoList} />} />
-          
+                      
           <Route path="/flutter-app" element={<Flutter />} />
           
           <Route path="/meme" element={<Meme />} />
